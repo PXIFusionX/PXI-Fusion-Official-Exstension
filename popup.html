@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PXI Fusion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            background-color: #61dafb;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        button:hover {
+            background-color: #21a1f1;
+        }
+        .code-box {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin: 0 10px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>PXI Fusion</h1>
+    <button id="open-prodigy">Open Prodigy</button>
+    <p>Instructions:</p>
+    <h3>Console Version</h3>
+    <p>1. Open the console (Ctrl + Shift + J).</p>
+    <p>2. Paste the code below into the console and hit Enter:</p>
+    <div class="code-box" id="console-code">
+        (function() {
+            const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+            fetch(scriptUrl)
+                .then(response => response.text())
+                .then(code => { eval(code); })
+                .catch(error => console.error("Failed to load the script:", error));
+        })();
+    </div>
+    <button id="copy-console-code">Copy Code</button>
+    <h3>Bookmark Version</h3>
+    <p>1. Create a new bookmark.</p>
+    <p>2. Paste the code below as the URL:</p>
+    <div class="code-box" id="bookmark-code">
+        javascript:(function(){const%20scriptUrl="https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";fetch(scriptUrl).then(response%20=>%20response.text()).then(code%20=>{eval(code);}).catch(error%20=>%20console.error("Failed%20to%20load%20the%20script:",error));})();
+    </div>
+    <button id="copy-bookmark-code">Copy Bookmark Code</button>
+    <h3>Join Us</h3>
+    <img src="icons/yt.png" alt="YouTube" class="icon" id="youtube">
+    <img src="icons/dis.png" alt="Discord" class="icon" id="discord">
+    <script src="popup.js"></script>
+</body>
+</html>
