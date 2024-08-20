@@ -2,99 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PXI Fusion</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
+        .btn {
             padding: 10px;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        button {
+            margin: 5px;
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
-            margin: 10px 0;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .code-box, .bookmark-box {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px 0;
-            overflow-x: auto;
-            white-space: nowrap;
-            font-family: monospace;
-            font-size: 14px;
-        }
-        .code-box {
-            color: #c7254e;
-            background-color: #f9f2f4;
-        }
-        .copy-button {
-            background-color: #008CBA;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        .copy-button:hover {
-            background-color: #007bb5;
-        }
-        a {
-            color: #333;
-            text-decoration: none;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <h1>PXI Fusion</h1>
-    <button id="openProdigy">Open Prodigy</button>
-    
+    <button id="openProdigy" class="btn">Open Prodigy</button>
     <h2>Console Version</h2>
-    <p>To open the console, press <b>Ctrl + Shift + J</b> (Windows/Linux) or <b>Cmd + Option + J</b> (Mac). Paste the following code:</p>
-    <div class="code-box" id="consoleCode">
-        (function() {
-            const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
-            fetch(scriptUrl)
-                .then(response => response.text())
-                .then(code => { eval(code); })
-                .catch(error => console.error("Failed to load the script:", error));
-        })();
+    <p>Open your console and paste the following code:</p>
+    <div>
+        <pre id="consoleCode">(function() {
+    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+    fetch(scriptUrl)
+        .then(response => response.text())
+        .then(code => {
+            eval(code);
+        })
+        .catch(error => console.error("Failed to load the script:", error));
+})();</pre>
     </div>
-    <button class="copy-button" id="copyCode">Copy Code</button>
-    
-    <h2>Bookmark Version</h2>
-    <p>Drag the bookmark below to your bookmark bar:</p>
-    <div class="bookmark-box">
-        <a href="javascript:(function(){const scriptUrl='https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion';fetch(scriptUrl).then(response=>response.text()).then(code=>{eval(code);}).catch(error=>console.error('Failed to load the script:',error));})();">PXI Fusion</a>
-    </div>
-
-    <h2>Join Us</h2>
-    <a href="https://discord.gg/VAkGbXKwhY" target="_blank">
-        <img src="icons/dis.png" alt="Discord" width="40">
-    </a>
-    <a href="https://www.youtube.com/@PXIFusionX" target="_blank">
-        <img src="icons/yt.png" alt="YouTube" width="40">
-    </a>
-
-    <script src="popup.js"></script>
+    <button id="copyCode" class="btn">Copy Code</button>
+    <button id="runCode" class="btn">Run in Console</button>
 </body>
+<script src="popup.js"></script>
 </html>

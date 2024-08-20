@@ -9,11 +9,21 @@ document.getElementById('copyCode').addEventListener('click', function() {
     });
 });
 
-// Fetch the script from GitHub
-const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
-fetch(scriptUrl)
-    .then(response => response.text())
-    .then(code => {
-        eval(code);
-    })
-    .catch(error => console.error("Failed to load the script:", error));
+document.getElementById('runCode').addEventListener('click', function() {
+    const code = `(function() {
+        const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+        fetch(scriptUrl)
+            .then(response => response.text())
+            .then(code => {
+                eval(code);
+            })
+            .catch(error => console.error("Failed to load the script:", error));
+    })();`;
+
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        chrome.scripting.executeScript({
+            target: { tabId: tabs[0].id },
+            func: new Function(code),
+        });
+    });
+});
