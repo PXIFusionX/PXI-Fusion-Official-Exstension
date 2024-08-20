@@ -9,9 +9,17 @@
             color: #ffffff;
             margin: 0;
             padding: 20px;
+            width: 300px;
+            height: 300px;
         }
         h1 {
             color: #00bfff;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         button {
             background-color: #00bfff;
@@ -20,23 +28,96 @@
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            text-align: center;
         }
         button:hover {
             background-color: #1e90ff;
+        }
+        .instructions {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        code {
+            display: block;
+            background-color: #2e2e2e;
+            color: #00bfff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <h1>PXI Fusion</h1>
     
-    <div class="section">
-        <button id="run-script">Run in Console</button>
+    <div class="button-container">
+        <button id="open-prodigy">Open Prodigy</button>
+        <button id="run-console">Run in Console</button>
+    </div>
+    
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <p><strong>Console Version:</strong></p>
+        <p>To use the PXI Fusion Cheat Menu, follow these steps:</p>
+        <ol>
+            <li>Open the console in your browser (usually by pressing <code>Ctrl+Shift+J</code> or <code>Cmd+Option+J</code>).</li>
+            <li>Paste the code below into the console and press Enter:</li>
+        </ol>
+        <code>
+            function() {<br>
+                const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";<br>
+                <br>
+                fetch(scriptUrl)<br>
+                    .then(response => response.text())<br>
+                    .then(code => {<br>
+                        eval(code);<br>
+                    })<br>
+                    .catch(error => console.error("Failed to load the script:", error));<br>
+            }();
+        </code>
+        <button id="copy-code">Copy Code</button>
+        <p><strong>Bookmark Version:</strong></p>
+        <p>To add a bookmark, create a new JavaScript bookmark with the following code:</p>
+        <code>
+            javascript:(function(){<br>
+                const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";<br>
+                <br>
+                fetch(scriptUrl)<br>
+                    .then(response => response.text())<br>
+                    .then(code => {<br>
+                        eval(code);<br>
+                    })<br>
+                    .catch(error => console.error("Failed to load the script:", error));<br>
+            })();
+        </code>
     </div>
 
     <script>
-        document.getElementById('run-script').addEventListener('click', () => {
+        document.getElementById('open-prodigy').addEventListener('click', () => {
+            chrome.tabs.create({ url: "https://math.prodigygame.com/?launcher=true&code=*" });
+        });
+
+        document.getElementById('run-console').addEventListener('click', () => {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 chrome.tabs.sendMessage(tabs[0].id, { action: 'runScript' });
+            });
+        });
+
+        document.getElementById('copy-code').addEventListener('click', () => {
+            const code = `function() {
+                const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+
+                fetch(scriptUrl)
+                    .then(response => response.text())
+                    .then(code => {
+                        eval(code);
+                    })
+                    .catch(error => console.error("Failed to load the script:", error));
+            }();`;
+
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied to clipboard!');
             });
         });
     </script>
