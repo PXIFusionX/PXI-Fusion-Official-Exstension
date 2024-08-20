@@ -11,7 +11,6 @@
     "permissions": [
       "declarativeNetRequest",
       "declarativeNetRequestWithHostAccess",
-      "webRequest",
       "activeTab",
       "scripting",
       "storage"

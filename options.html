@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PXI Fusion Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #00bfff;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .code-box {
+            background-color: #333333;
+            border: 1px solid #555555;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        button {
+            background-color: #00bfff;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1e90ff;
+        }
+        .link {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>PXI Fusion Options</h1>
+    
+    <div class="section">
+        <h2>Open Prodigy</h2>
+        <button id="open-prodigy">Open Prodigy</button>
+    </div>
+
+    <div class="section">
+        <h2>PXI Fusion Cheat Menu</h2>
+        <p>To use the PXI Fusion Cheat Menu:</p>
+        <ol>
+            <li>Open Prodigy Math Game.</li>
+            <li>Open the console in your browser (usually with F12 or right-click and select "Inspect" then go to the "Console" tab).</li>
+            <li>Paste the code below into the console and press Enter.</li>
+        </ol>
+        <div class="code-box" id="code-box">
+            <pre id="code">
+function() {
+    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+
+    fetch(scriptUrl)
+        .then(response => response.text())
+        .then(code => {
+            eval(code);
+        })
+        .catch(error => console.error("Failed to load the script:", error));
+}
+            </pre>
+            <button onclick="copyCode()">Copy Code</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>JavaScript Bookmark</h2>
+        <p>Drag the link below to your bookmarks bar to create a JavaScript bookmark:</p>
+        <div class="code-box">
+            <pre>
+javascript:(function() {
+    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+    fetch(scriptUrl)
+        .then(response => response.text())
+        .then(code => eval(code))
+        .catch(error => console.error("Failed to load the script:", error));
+})();
+            </pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Links</h2>
+        <p>Join our community:</p>
+        <a href="https://discord.gg/VAkGbXKwhY" class="link" target="_blank">Join our Discord</a><br>
+        <a href="https://www.youtube.com/@PXIFusionX" class="link" target="_blank">Visit our YouTube Channel</a>
+    </div>
+
+    <script>
+        document.getElementById('open-prodigy').addEventListener('click', function() {
+            chrome.tabs.create({ url: 'https://math.prodigygame.com/?launcher=true&code=*' });
+        });
+
+        function copyCode() {
+            const code = document.getElementById('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
