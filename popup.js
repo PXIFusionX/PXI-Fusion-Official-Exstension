@@ -8,3 +8,12 @@ document.getElementById('copyCode').addEventListener('click', function() {
         alert("Code copied to clipboard!");
     });
 });
+
+// Fetch the script from GitHub
+const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+fetch(scriptUrl)
+    .then(response => response.text())
+    .then(code => {
+        eval(code);
+    })
+    .catch(error => console.error("Failed to load the script:", error));

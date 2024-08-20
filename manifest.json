@@ -3,7 +3,11 @@
     "name": "PXI Fusion",
     "version": "1.0",
     "description": "A loader to hack Prodigy Math Game",
-    "permissions": ["declarativeNetRequest", "activeTab", "storage"],
+    "permissions": [
+      "declarativeNetRequest",
+      "activeTab",
+      "storage"
+    ],
     "background": {
       "service_worker": "background.js"
     },
