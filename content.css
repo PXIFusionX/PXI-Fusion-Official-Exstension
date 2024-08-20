@@ -1,0 +1,23 @@
+/* This is an example CSS for styling content on Prodigy Math Game pages */
+body {
+    /* Basic styling to demonstrate */
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    font-family: Arial, sans-serif !important;
+}
+
+button, .button {
+    background-color: #00bfff !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+}
+
+button:hover, .button:hover {
+    background-color: #1e90ff !important;
+}
+
+/* Additional styling for specific elements on Prodigy Math Game pages */
