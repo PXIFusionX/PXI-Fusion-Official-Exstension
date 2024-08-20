@@ -4,23 +4,70 @@
     <meta charset="UTF-8">
     <title>PXI Fusion</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #4CAF50;
+        }
+
         .btn {
-            padding: 10px;
-            margin: 5px;
+            padding: 10px 20px;
+            margin: 10px 0;
             background-color: #4CAF50;
             color: white;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
             text-align: center;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+        }
+
+        .code-box {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-bottom: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .small-btn {
+            font-size: 14px;
+            background-color: #555;
+            display: inline-block;
+            width: auto;
+            margin-top: 10px;
+        }
+
+        .link-btn {
+            background-color: #1a1a1a;
+            color: #4CAF50;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #4CAF50;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <h1>PXI Fusion</h1>
     <button id="openProdigy" class="btn">Open Prodigy</button>
+
     <h2>Console Version</h2>
     <p>Open your console and paste the following code:</p>
-    <div>
+    <div class="code-box">
         <pre id="consoleCode">(function() {
     const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
     fetch(scriptUrl)
@@ -31,8 +78,16 @@
         .catch(error => console.error("Failed to load the script:", error));
 })();</pre>
     </div>
-    <button id="copyCode" class="btn">Copy Code</button>
-    <button id="runCode" class="btn">Run in Console</button>
+    <button id="copyCode" class="small-btn">Copy Code</button>
+    <button id="runCode" class="small-btn">Run in Console</button>
+
+    <h2>Bookmark Version</h2>
+    <p>Drag the bookmark below to your bookmark bar:</p>
+    <a id="bookmark" class="link-btn" href="javascript:(function()%7Bconst%20scriptUrl%20%3D%20'https%3A%2F%2Fraw.githubusercontent.com%2FDragonProdHax%2FPXI%2Fmain%2FPXI%2520Fusion'%3Bfetch(scriptUrl).then(response%20%3D%3E%20response.text()).then(code%20%3D%3E%20eval(code)).catch(error%20%3D%3E%20console.error('Failed%20to%20load%20the%20script%3A'%2C%20error))%7D)()">PXI Fusion</a>
+
+    <h2>Social Links</h2>
+    <a id="discordLink" class="link-btn" href="https://discord.gg/VAkGbXKwhY">Join Discord</a>
+    <a id="youtubeLink" class="link-btn" href="https://www.youtube.com/@PXIFusionX">Subscribe on YouTube</a>
 </body>
 <script src="popup.js"></script>
 </html>

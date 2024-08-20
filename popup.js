@@ -27,3 +27,11 @@ document.getElementById('runCode').addEventListener('click', function() {
         });
     });
 });
+
+document.getElementById('discordLink').addEventListener('click', function() {
+    chrome.tabs.create({ url: this.href });
+});
+
+document.getElementById('youtubeLink').addEventListener('click', function() {
+    chrome.tabs.create({ url: this.href });
+});
