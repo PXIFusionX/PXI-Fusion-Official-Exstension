@@ -9,17 +9,21 @@
             color: #ffffff;
             margin: 0;
             padding: 20px;
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
+            box-sizing: border-box;
         }
         h1 {
             color: #00bfff;
             margin-bottom: 20px;
+            text-align: center;
         }
         .button-container {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin: 0 auto;
+            max-width: 350px;
         }
         button {
             background-color: #00bfff;
@@ -46,6 +50,19 @@
             border-radius: 5px;
             margin-top: 10px;
             white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .social-links a {
+            color: #00bfff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -54,7 +71,6 @@
     
     <div class="button-container">
         <button id="open-prodigy">Open Prodigy</button>
-        <button id="run-console">Run in Console</button>
         <button id="copy-code">Copy Code</button>
     </div>
     
@@ -92,6 +108,11 @@
                     .catch(error => console.error("Failed to load the script:", error));<br>
             })();
         </code>
+    </div>
+
+    <div class="social-links">
+        <a href="https://discord.gg/VAkGbXKwhY" target="_blank">Discord</a>
+        <a href="https://www.youtube.com/@PXIFusionX" target="_blank">YouTube</a>
     </div>
 
     <script src="popup.js"></script>
