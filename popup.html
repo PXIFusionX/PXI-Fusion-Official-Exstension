@@ -66,7 +66,7 @@
 </head>
 <body>
     <h1>PXI Fusion</h1>
-    <button onclick="openProdigy()">Open Prodigy</button>
+    <button id="openProdigy">Open Prodigy</button>
     
     <h2>Console Version</h2>
     <p>To open the console, press <b>Ctrl + Shift + J</b> (Windows/Linux) or <b>Cmd + Option + J</b> (Mac). Paste the following code:</p>
@@ -79,7 +79,7 @@
                 .catch(error => console.error("Failed to load the script:", error));
         })();
     </div>
-    <button class="copy-button" onclick="copyToClipboard('consoleCode')">Copy Code</button>
+    <button class="copy-button" id="copyCode">Copy Code</button>
     
     <h2>Bookmark Version</h2>
     <p>Drag the bookmark below to your bookmark bar:</p>
@@ -95,17 +95,6 @@
         <img src="icons/yt.png" alt="YouTube" width="40">
     </a>
 
-    <script>
-        function openProdigy() {
-            window.open("https://math.prodigygame.com/?launcher=true&code=*");
-        }
-
-        function copyToClipboard(elementId) {
-            const code = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                alert("Code copied to clipboard!");
-            });
-        }
-    </script>
+    <script src="popup.js"></script>
 </body>
 </html>
