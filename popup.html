@@ -45,6 +45,7 @@
             padding: 10px;
             border-radius: 5px;
             margin-top: 10px;
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -54,6 +55,7 @@
     <div class="button-container">
         <button id="open-prodigy">Open Prodigy</button>
         <button id="run-console">Run in Console</button>
+        <button id="copy-code">Copy Code</button>
     </div>
     
     <div class="instructions">
@@ -76,7 +78,6 @@
                     .catch(error => console.error("Failed to load the script:", error));<br>
             }();
         </code>
-        <button id="copy-code">Copy Code</button>
         <p><strong>Bookmark Version:</strong></p>
         <p>To add a bookmark, create a new JavaScript bookmark with the following code:</p>
         <code>
@@ -93,33 +94,6 @@
         </code>
     </div>
 
-    <script>
-        document.getElementById('open-prodigy').addEventListener('click', () => {
-            chrome.tabs.create({ url: "https://math.prodigygame.com/?launcher=true&code=*" });
-        });
-
-        document.getElementById('run-console').addEventListener('click', () => {
-            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-                chrome.tabs.sendMessage(tabs[0].id, { action: 'runScript' });
-            });
-        });
-
-        document.getElementById('copy-code').addEventListener('click', () => {
-            const code = `function() {
-                const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
-
-                fetch(scriptUrl)
-                    .then(response => response.text())
-                    .then(code => {
-                        eval(code);
-                    })
-                    .catch(error => console.error("Failed to load the script:", error));
-            }();`;
-
-            navigator.clipboard.writeText(code).then(() => {
-                alert('Code copied to clipboard!');
-            });
-        });
-    </script>
+    <script src="popup.js"></script>
 </body>
 </html>
